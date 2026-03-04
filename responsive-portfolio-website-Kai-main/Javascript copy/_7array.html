@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+
+        </title>
+    </head>
+    <body>
+        <script>
+            let arr=[1,2,3,4,5];
+            console.log(arr);
+            console.log(arr[0]);
+            console.log(arr.length);
+            arr.push(6);
+            console.log(arr);
+            arr.pop();
+            console.log(arr);
+            arr.forEach(function(num){
+                console.log(num);
+            });
+            
+            // using array function
+            arr.forEach((num)=>{
+                console.log(num);
+            })
+
+            //displaying with index
+            arr.forEach(function(num,index){
+                console.log("Index: "+index+" Value: "+num);
+            });
+
+
+            //store name rollno percntage mailid mobile no 
+            let students=[
+                    {
+                        name:"bhavesh",
+                        rollno:1,
+                        percentage:85,
+                        mailid:"kbhavesj@gmail.com",
+                        city:"hyderabad"
+                    }
+                    ,{
+                        name:"prudvi",
+                        rollno:2,
+                        percentage:90,
+                        mailid:"prudvi@gmail.com",
+                        city:"hyderabad"
+                    } 
+                    ,{
+                        name:"manash",
+                        rollno:2,
+                        percentage:90,
+                        mailid:"manash@gmail.com",
+                        city:"hyderabad"
+                    } 
+                    ,{
+                        name:"xyz",
+                        rollno:2,
+                        percentage:90,
+                        mailid:"xyz@gmail.com",
+                        city:"hyderabad"
+                    } ]
+            console.log(students);
+            students.forEach(function(student){
+                console.log("Name: "+student.name+" Roll No: "+student.rollno+" Percentage: "+student.percentage+" Mail ID: "+student.mailid+" City: "+student.city);
+            });
+
+            // with index
+            students.forEach(function(student,index){
+                console.log("Index: "+index+" Name: "+student.name+" Roll No: "+student.rollno+" Percentage: "+student.percentage+" Mail ID: "+student.mailid+" City: "+student.city);
+            });
+            //using array in javascipt
+            //with index
+            students.forEach((student,index)=>{
+                console.log("Index: "+index+" Name: "+student.name+" Roll No: "+student.rollno+" Percentage: "+student.percentage+" Mail ID: "+student.mailid+" City: "+student.city);
+            });
+            //without index
+            students.forEach((student)=>{
+                console.log("Name: "+student.name+" Roll No: "+student.rollno+" Percentage: "+student.percentage+" Mail ID: "+student.mailid+" City: "+student.city);
+            });
+
+            let name="bhavesh";
+            function displayName(){
+                console.log("Name: "+name);
+            }
+            displayName();
+            console.log(name);
+            print(displayName);
+            const message=function(){
+                console.log("welcome");
+            };
+            message();
+
+            //using direct function
+            printname = () =>{
+                console.log("hello");
+            }
+            printname();
+        
+
+
+
+            //practise
+            let x=20;
+            let y=30;
+            function add(){
+                let result=x+y;
+                console.log("Result:"+result);
+            }
+            add();
+
+            // type 2 using arriow and return 
+            const add1=(x,y)=>{
+                return x+y;
+            }
+            let resut1=add1(x,y);
+            console.log("Result: "+resut1);
+
+            //type 3
+
+            function sub(x,y){
+                return x-y;
+
+            }
+            console.log("Subtraction: "+sub(y,20));
+
+            const product = function(x,y){
+                return x*y;
+            }
+            console.log(product(x,y));
+            </script>
+            </body>
+</html>

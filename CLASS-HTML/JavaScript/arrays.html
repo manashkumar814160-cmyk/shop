@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+
+        </title>
+    </head>
+    <body>
+        <script> 
+            let arr=[1,2,3,4,5];
+            console.log(arr);
+            console.log(arr[0]);
+            console.log(arr.length);
+            arr.push(6);
+            console.log(arr);
+            arr.pop();
+            console.log(arr);
+            arr.forEach(function(num){
+                console.log(num);
+            });
+            
+            // using arrow function
+            arr.forEach((num) => {
+                console.log(num);
+            });
+            //display with using indix 
+            arr.forEach(function(num,index){
+                console.log(`Index: ${index}, Value: ${num}`);
+            });
+
+            //Store a student data Name,age,roll number,percentage,mobile number,mail id,city.
+            let student=[{
+                name:"Manash Kumar",
+                age:20,
+                rollNumber:2510040121,
+                percentage:85.5,
+                mobileNumber:"9835491508",
+                email:"manashkumar814160@gmail.com",
+                city: "Bhagalpur"}];
+            console.log(student);
+            
+            </script>
+</html>

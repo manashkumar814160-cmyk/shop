@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Counter App
+
+        </title>
+        <style>
+            body{
+                background: linear-gradient(to right, green, #fcb69f 100%);
+                margin: 0;
+                text-align: center;
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                font-weight: bold;
+                height: 100vh;
+                font-size: 35px;
+                color: greenyellow;
+
+            }
+            label{
+                font-size: 80px;
+                padding-right: 40px;
+                margin: 5px;
+
+            }
+            button{
+                border-radius: 10px;
+                width: 90px;
+                height: 40px;
+                font-size: 20px;
+                padding: 10px;
+                margin: 10px;
+                background-color: #fcb69f;
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                font-weight: bold;
+                color: rgb(34, 27, 235);
+                transition: all 0.3s ease;
+            }
+            button:hover{
+               box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+                transform: scale(1.1);
+                background-color: blanchedalmond;
+
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Counter</h1>
+            <label id="counter">0</label>
+            <div>
+                <button id="raise">Raise</button>
+                <button id="clear">Clear</button>
+                <button id="down">Lower</button>
+            </div>
+            <h4 id="message">Click the buttons to change the counter value.</h4>
+    </body>
+    <script>
+        const counterLabel = document.getElementById('counter');
+        const raiseButton = document.getElementById('raise');
+        const clearButton = document.getElementById('clear');
+        const downButton = document.getElementById('down');
+        const message = document.getElementById('message');
+        let count = 0;
+        raiseButton.onclick = function() {
+            count++;
+            counterLabel.textContent = count;
+            message.textContent = "Counter increased!";
+        }
+        clearButton.onclick = function() {
+            count = 0;
+            counterLabel.textContent = count;
+            message.textContent = "Counter reset to zero.";
+        }
+        downButton.onclick = function() {
+            count--;
+            counterLabel.textContent = count;
+            message.textContent = "Counter decreased!";
+        }   
+
+
+    </script>
+
+</html>

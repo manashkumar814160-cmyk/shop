@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+
+        </title>
+        <body>
+            <script>
+                const h1Element = document.createElement("h1");
+                h1Element.textContent = "DOM Manipulation";
+                document.body.appendChild(h1Element);
+                h1Element.id="heading";
+                h1Element.classList.add("main-heading");
+                //p element 
+                const pElement = document.createElement("p");
+                pElement.textContent = "This is a paragraph added dynamically using DOM manipulation.";
+                document.body.appendChild(pElement);
+                pElement.setAttribute("id","pvalue");
+                pElement.classList.add("py-4 lead");
+                //button element
+                const buttonElement = document.createElement("button");
+                buttonElement.textContent = "Click Me";
+                buttonElement.onclick = function() {
+                    alert("Button Clicked!");
+                };
+                document.body.appendChild(buttonElement);
+
+                //addevent lister and addclick event 
+                // onclick button
+                buttonElement.addEventListener("click",function(){
+                    document.body.style.backgroundColor="lightblue";
+                    h1Element.style.color="red";
+                    h1Element.style.color="red";
+                    pElement.style.color="green";
+                })
+            </script>
+        </body>
+    </head>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE >
+<html lang="en">
+    <head>
+        <title>Flex Overflow Demo</title>
+        <style>
+           .main{
+            background -color: red;
+            display:inline -flex;
+            flex -direction: row;
+           }
+            }
+            .container {
+                display: flex;
+                height: 100px;
+                width:100px;
+                border: 2px solid #000;
+            }
+            .box {
+                flex: 1;
+                border: 1px solid #333;
+                overflow: auto;
+                padding: 10px;
+            }
+            .content {
+                height: 20%;
+                background: linear-gradient(to bottom, #f06, #4a90e2);
+            }
+
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="box">
+                <h2>Box 1</h2>
+                <div class="content"></div>
+            </div>
+            <div class="box">
+                <h2>Box 2</h2>
+                <div class="content"></div>
+            </div>
+            <div class="box">
+                <h2>Box 3</h2>
+                <div class="content"></div>
+            </div>
+        </div>
+    </body>
+</html>

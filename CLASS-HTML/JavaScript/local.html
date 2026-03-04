@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        localStorage.setItem("Name","Manash");
+        localStorage.setItem("FruitsLists","apple");
+        localStorage.setItem("id",JSON.stringify(4520)); // the data is in string because it in json format wwhaterve it ocnvert to string 
+        localStorage.setItem("City","Hyderebad");
+        let list = [ "Moblie","TV","HeadPhones"];
+        localStorage.setItem("Electronics",JSON.stringify(list));
+        let Student={
+            name:"Manash",
+            roll:121,
+            percentage: 100
+
+        };
+        localStorage.setItem("Student",JSON.stringify(Student));
+        console.log(localStorage.getiteam("Name"))
+        console.log(JSON.parse(localstorage.getiteam("id")));
+        console.log(JSON.parse(localstorage.getiteam("product-list")));
+        console.log(JSON.parse(localstorage.getiteam("Student-object")));
+        //removeIteam
+        localStorage.removeIteam("name");
+        localStorage.removeIteam("id");
+        localStorage.removeIteam("city");
+        localStorage.removeIteam("product-item");
+        localStorage.removeIteam("student-object");
+
+
+    </script>
+</body>
+</html>

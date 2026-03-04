@@ -1,0 +1,66 @@
+.background{
+    background-color: rgb(246, 135, 250);
+}
+.head1{
+    text-align: center;
+    color: rgb(0, 0, 0);
+}
+.Bigbox{
+   display: flex;
+   flex-direction: row;
+    align-items: center;
+}
+.sec1{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background-color: thistle;
+    border-radius: 30px;
+    width: 100%;
+    min-width: 400px;
+    padding: 20px;
+}
+.text-section {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+.sec1 > img, .sec2 > img, .sec3 > img, .sec4 > img{
+    width: 200px;
+    height: 160px;
+    border-radius: 30px;
+    flex-shrink: 0;
+}
+.sec2{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background-color: thistle; 
+    margin-left: 20px;
+    border-radius: 30px;
+    width: 100%;
+    min-width: 400px;
+    padding: 20px;
+}
+.sec3{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background-color: thistle;
+    margin-left: 20px;
+    border-radius: 30px;
+    width: 100%;
+    min-width: 400px;
+    padding: 20px;
+}
+.sec4{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background-color: thistle; 
+    margin-left: 20px;
+    border-radius: 30px;
+    width: 100%;
+    min-width: 400px;
+    padding: 20px;
+}

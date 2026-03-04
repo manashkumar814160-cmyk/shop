@@ -1,0 +1,21 @@
+h2{
+    font-size: 32px;
+    color: #333333;
+}
+p{
+    font-size: 25px;
+    color: #0909e3;
+}
+.body-background{
+    background-image: url(https://static-cse.canva.com/blob/1145215/1.magebyRodionKutsaevviaUnsplash.jpg);
+    background-size: cover;
+}
+.nav-bar{
+    background-color: rgba(196, 230, 230);
+    width: fit-content;
+    padding: 10px;
+    border-radius: 30px;
+}
+.list{
+    font-family:'franklin gothic medium', 'arial narrow', Arial, sans-serif;
+}

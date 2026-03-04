@@ -1,0 +1,1136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - Manoj Machineries</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: linear-gradient(135deg, #d32f2f 0%, #e64a19 100%);
+            color: white;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+
+        nav a:hover {
+            opacity: 0.8;
+        }
+
+        /* Page Title */
+        .page-title {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .page-title h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        .page-title p {
+            font-size: 18px;
+            opacity: 0.95;
+        }
+
+        /* Products Container */
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Category Section */
+        .category-section {
+            margin-bottom: 80px;
+        }
+
+        .category-title {
+            font-size: 36px;
+            color: #222;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #ff6f00;
+            display: inline-block;
+        }
+
+        /* Products Grid */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        /* Product Card */
+        .product-card {
+            background: #fff;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 6px 24px rgba(44,62,80,0.10), 0 1.5px 4px rgba(44,62,80,0.08);
+            transition: box-shadow 0.3s, transform 0.2s;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #f1f1f1;
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 16px 40px rgba(44,62,80,0.18), 0 2px 8px rgba(44,62,80,0.10);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            background: #f0f0f0;
+        }
+
+        .product-details {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-name {
+            font-size: 20px;
+            font-weight: bold;
+            color: #222;
+            margin-bottom: 8px;
+        }
+
+        .product-description {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 12px;
+            line-height: 1.5;
+        }
+
+        .product-specs {
+            background: #f9f9f9;
+            padding: 10px;
+            border-radius: 6px;
+            font-size: 13px;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .price-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+            padding-top: 15px;
+            border-top: 1px solid #f1e6e6;
+        }
+
+        .price {
+            font-size: 24px;
+            font-weight: bold;
+            color: #d32f2f;
+        }
+
+        .original-price {
+            font-size: 14px;
+            color: #999;
+            text-decoration: line-through;
+            margin-right: 8px;
+        }
+
+        .discount-badge {
+            background: #ff6f00;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .add-btn {
+            background: linear-gradient(90deg, #ff6f00 0%, #d32f2f 100%);
+            color: #fff;
+            border: none;
+            padding: 14px 0;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: background 0.3s, box-shadow 0.3s, transform 0.2s;
+            width: 100%;
+            margin-top: 18px;
+            font-size: 16px;
+            letter-spacing: 0.5px;
+            box-shadow: 0 2px 8px rgba(255,111,0,0.10);
+        }
+
+        .add-btn:hover {
+            background: linear-gradient(90deg, #d32f2f 0%, #ff6f00 100%);
+            transform: scale(1.05);
+            box-shadow: 0 8px 24px rgba(255,111,0,0.18);
+        }
+
+        /* Filter Section */
+        .filter-section {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 40px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .filter-title {
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #222;
+        }
+
+        .price-range-input {
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        /* Info Box */
+        .info-box {
+            background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+            padding: 25px;
+            border-radius: 8px;
+            margin: 30px 0;
+            text-align: center;
+            border-left: 4px solid #ff6f00;
+            animation: scaleIn 0.3s ease infinite;
+        }
+        @keyframes scaleIn{
+            from{transform: scale(1);}
+            from{transform: scale(1.3);}
+
+        }
+        .info-box h3 {
+            color: #222;
+            margin-bottom: 10px;
+        }
+
+        .info-box p {
+            color: #666;
+        }
+
+        /* Footer */
+        footer {
+            background: #222;
+            color: white;
+            padding: 40px 20px;
+            margin-top: 80px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            text-align: left;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 15px;
+            color: #ff6f00;
+        }
+
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .footer-section a:hover {
+            color: #ff6f00;
+        }
+
+        .contact-info {
+            margin: 8px 0;
+            color: #ccc;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            border-top: 1px solid #444;
+            padding-top: 20px;
+            color: #999;
+        }
+
+        @media (max-width: 768px) {
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+
+            .category-title {
+                font-size: 24px;
+            }
+
+            .page-title h1 {
+                font-size: 32px;
+            }
+
+            nav {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+        <!-- Flipkart-style Top Bar -->
+        <header style="background: #fff; border-bottom: 1px solid #e0e0e0;">
+            <div style="max-width: 1400px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 10px 24px;">
+                <div style="display: flex; align-items: center; gap: 18px;">
+                    <a href="#" style="display: flex; align-items: center; gap: 6px; text-decoration: none;">
+                        <img src="https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/fk-explorePlus-c5de64.png" alt="ManojKart" style="height: 40px;">
+                        <span style="font-size: 22px; font-weight: bold; color: #2874f0;">Manoj</span>
+                    </a>
+                    <a href="#" style="background: #ffe11b; color: #222; border-radius: 6px; padding: 6px 18px; font-weight: 600; font-size: 15px; text-decoration: none;">machines</a>
+                </div>
+                <form style="flex: 1; margin: 0 32px; max-width: 600px;" onsubmit="return false;">
+                    <input type="text" id="mainSearchBar" placeholder="Search for Products, Brands and More" style="width: 100%; padding: 13px 18px; border-radius: 8px; border: 1px solid #ddd; font-size: 17px; outline: none; background: #f0f5ff;">
+                </form>
+                <div style="display: flex; align-items: center; gap: 18px;">
+                    <a href="#" style="color: #2874f0; font-weight: 600; text-decoration: none; font-size: 16px;">Login</a>
+                    <a href="#" style="color: #222; text-decoration: none; font-size: 16px;">More</a>
+                    <a href="#" style="color: #222; text-decoration: none; font-size: 16px; display: flex; align-items: center; gap: 4px;"><span style="font-size: 20px;">🛒</span>Cart</a>
+                </div>
+            </div>
+        </header>
+
+    <!-- Page Title -->
+    <div class="page-title">
+
+
+    <div class="main-container">
+
+
+            <!-- Info Box -->
+            <div class="info-box">
+                <h3>🎉 Special Offers Available</h3>
+                <p>Get up to 30% discount on selected items. Free installation support on motors and pumps!</p>
+            </div>
+
+        <!-- ========== MOTORS & PUMPS ========== -->
+        <div class="category-section">
+            <h2 class="category-title">⚡ Motors & Pumps</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789" alt="Electric Motor">
+                    <div class="product-details">
+                        <div class="product-name">1 HP Electric Motor</div>
+                        <div class="product-description">Heavy-duty single phase electric motor, ideal for agricultural pumps</div>
+                        <div class="product-specs">Voltage: 220V | Power: 1 HP | RPM: 1440</div>
+                        <div class="price-section">
+                            <div>
+                                <span class="original-price">₹4,500</span>
+                                <div class="price">₹3,499</div>
+                            </div>
+                            <span class="discount-badge">22% OFF</span>
+                        </div>
+                        <button class="add-btn">Add to Cart →</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://5.imimg.com/data5/SELLER/Default/2021/7/XY/UL/GL/1287266/monoblock-pump-500x500.jpg" alt="Monoblock Pump">
+                    <div class="product-details">
+                        <div class="product-name">Monoblock Pump 1.5 HP</div>
+                        <div class="product-description">Efficient monoblock pump for irrigation and domestic use</div>
+                        <div class="product-specs">Power: 1.5 HP | Voltage: 220V | Flow: 2500 LPH</div>
+                        <div class="price-section">
+                            <div>
+                                <span class="original-price">₹6,000</span>
+                                <div class="price">₹4,499</div>
+                            </div>
+                            <span class="discount-badge">25% OFF</span>
+                        </div>
+                        <button class="add-btn">Add to Cart →</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img src="https://5.imimg.com/data5/IA/UY/MY-25768782/hp-motor-500x500.jpg" alt="2 HP Motor">
+                    <div class="product-details">
+                        <div class="product-name">2 HP Electric Motor</div>
+                        <div class="product-description">Three phase industrial motor for high-performance applications</div>
+                        <div class="product-specs">Voltage: 3-Phase 415V | Power: 2 HP | Warranty: 1 Year</div>
+                        <div class="price-section">
+                            <div>
+                                <span class="original-price">₹7,500</span>
+                                <div class="price">₹5,899</div>
+                            </div>
+                            <span class="discount-badge">21% OFF</span>
+                        </div>
+                        <button class="add-btn">Add to Cart →</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img src="https://5.imimg.com/data5/UY/CR/MY-3404596/submersible-water-pump-500x500.jpg" alt="Submersible Pump">
+                    <div class="product-details">
+                        <div class="product-name">Submersible Pump (1 HP)</div>
+                        <div class="product-description">Durable submersible pump for deep wells, high pressure capacity</div>
+                        <div class="product-specs">Discharge: 50mm | Delivery: 1800 LPH | Head: 45M</div>
+                        <div class="price-section">
+                            <div>
+                                <span class="original-price">₹60,500</span>
+                                <div class="price">₹40,079</div>
+                            </div>
+                            <span class="discount-badge">26% OFF</span>
+                        </div>
+                        <button class="add-btn">Add to Cart →</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://5.imimg.com/data5/SELLER/Default/2020/12/OH/FT/EM/20533339/water-mini-hand-pump-500x500.jpg" alt="Water Pump">
+                    <div class="product-details">
+                        <div class="product-name">Centrifugal Water Pump</div>
+                        <div class="product-description">Self-priming centrifugal pump for agriculture and industrial use</div>
+                        <div class="product-specs">Capacity: 2000 LPH | Voltage: 1 HP | Long Durability</div>
+                        <div class="price-section">
+                            <div>
+                                <span class="original-price">₹5,000</span>
+                                <div class="price">₹3,599</div>
+                            </div>
+                            <span class="discount-badge">28% OFF</span>
+                        </div>
+                        <button class="add-btn">Add to Cart →</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== TUBE WELLS & BORE SYSTEMS ========== -->
+        <div class="category-section">
+            <h2 class="category-title">💧 Tube Wells & Bore Systems</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1563821661-3bab43f72e45" alt="Tube Well">
+                    <div class="product-details">
+                        <div class="product-name">M.S. Tube Well 2 inch</div>
+                        <div class="product-description">Mild steel tube well, ideal for shallow to medium depth boring</div>
+                        <div class="product-specs">Diameter: 2" | Length: 10 ft | Thickness: 2.5mm</div>
+                        <div class="price-section">
+                            <div>
+                                <span class="original-price">₹2,500</span>
+                                <div class="price">₹1,899</div>
+                            </div>
+                            <span class="discount-badge">24% OFF</span>
+                        </div>
+                        <button class="add-btn">Add to Cart →</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://5.imimg.com/data5/SELLER/Default/2021/7/XY/UL/GL/1287266/borewell-pipe-500x500.jpg" alt="Borewell Pipe">
+                    <div class="product-details">
+                        <div class="product-name">Borewell Pipe (PVC)</div>
+                        <div class="product-description">High-quality PVC pipe for borewell installations</div>
+                        <div class="product-specs">Diameter: 4" | Length: 6m | Material: PVC</div>
+                        <div class="price-section">
+                            <div>
+                                <span class="original-price">₹2,200</span>
+                                <div class="price">₹1,599</div>
+                            </div>
+                            <span class="discount-badge">27% OFF</span>
+                        </div>
+                        <button class="add-btn">Add to Cart →</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://5.imimg.com/data5/SELLER/Default/2021/7/XY/UL/GL/1287266/bore-cap-500x500.jpg" alt="Bore Cap">
+                    <div class="product-details">
+                        <div class="product-name">Bore Cap (PVC)</div>
+                        <div class="product-description">Durable PVC bore cap for sealing tube wells</div>
+                        <div class="product-specs">Size: 4" | Material: PVC | Leakproof</div>
+                        <div class="price-section">
+                            <div>
+                                <span class="original-price">₹250</span>
+                                <div class="price">₹169</div>
+                            </div>
+                            <span class="discount-badge">32% OFF</span>
+                        </div>
+                        <button class="add-btn">Add to Cart →</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://5.imimg.com/data5/SELLER/Default/2021/7/XY/UL/GL/1287266/borewell-strainer-500x500.jpg" alt="Borewell Strainer">
+                    <div class="product-details">
+                        <div class="product-name">Borewell Strainer (SS)</div>
+                        <div class="product-description">Stainless steel strainer for water filtration in tube wells</div>
+                        <div class="product-specs">Diameter: 2" | Length: 3 ft | Material: SS</div>
+                        <div class="price-section">
+                            <div>
+                                <span class="original-price">₹1,200</span>
+                                <div class="price">₹849</div>
+                            </div>
+                            <span class="discount-badge">29% OFF</span>
+                        </div>
+                        <button class="add-btn">Add to Cart →</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://5.imimg.com/data5/SELLER/Default/2021/7/XY/UL/GL/1287266/borewell-pump-adapter-500x500.jpg" alt="Borewell Pump Adapter">
+                    <div class="product-details">
+                        <div class="product-name">Borewell Pump Adapter</div>
+                        <div class="product-description">Adapter for connecting submersible pumps to bore pipes</div>
+                        <div class="product-specs">Size: 1.5" | Material: Brass | Heavy Duty</div>
+                        <div class="price-section">
+                            <div>
+                                <span class="original-price">₹650</span>
+                                <div class="price">₹449</div>
+                            </div>
+                            <span class="discount-badge">31% OFF</span>
+                        </div>
+                        <button class="add-btn">Add to Cart →</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://5.imimg.com/data5/SELLER/Default/2021/7/XY/UL/GL/1287266/plastic-water-tank-500x500.jpg" alt="Plastic Water Tank">
+                    <div class="product-details">
+                        <div class="product-name">Plastic Water Tank 1000L</div>
+                        <div class="product-description">ISI marked triple-layer water tank for safe storage</div>
+                        <div class="product-specs">Capacity: 1000L | Material: HDPE | UV Resistant</div>
+                        <div class="price-section">
+                            <div>
+                                <span class="original-price">₹8,000</span>
+                                <div class="price">₹5,999</div>
+                            </div>
+                            <span class="discount-badge">25% OFF</span>
+                        </div>
+                        <button class="add-btn">Add to Cart →</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://5.imimg.com/data5/SELLER/Default/2021/7/XY/UL/GL/1287266/sintex-water-tank-500x500.jpg" alt="Sintex Water Tank">
+                    <div class="product-details">
+                        <div class="product-name">Sintex Water Tank 500L</div>
+                        <div class="product-description">Popular Sintex brand tank for home and commercial use</div>
+                        <div class="product-specs">Capacity: 500L | Material: HDPE | 5 Year Warranty</div>
+                        <div class="price-section">
+                            <div>
+                                <span class="original-price">₹5,000</span>
+                                <div class="price">₹3,799</div>
+                            </div>
+                            <span class="discount-badge">24% OFF</span>
+                        </div>
+                        <button class="add-btn">Add to Cart →</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1563821661-3bab43f01a4e" alt="Tube Well 3 inch">
+                    <div class="product-details">
+                        <div class="product-name">M.S. Tube Well 3 inch</div>
+                        <div class="product-description">Professional grade 3 inch tube well for deep bore applications</div>
+                        <div class="product-specs">Diameter: 3" | Length: 10 ft | Load Capacity: High</div>
+                        <div class="price-section">
+                            <div>
+                                <span class="original-price">₹4,200</span>
+                                <div class="price">₹2,999</div>
+                            </div>
+                            <span class="discount-badge">29% OFF</span>
+                        </div>
+                        <button class="add-btn">Add to Cart →</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1599062279686-16b5f82d01a6" alt="PVC Pipe">
+                    <div class="product-details">
+                        <div class="product-name">PVC Tube Well Screen (2")</div>
+                        <div class="product-description">Durable PVC screen for water filtration, rust-resistant</div>
+                        <div class="product-specs">Diameter: 2" | Slot Size: 0.25mm | Length: 5 ft</div>
+                        <div class="price-section">
+                            <div>
+                                <span class="original-price">₹1,800</span>
+                                <div class="price">₹1,299</div>
+                            </div>
+                            <span class="discount-badge">28% OFF</span>
+                        </div>
+                        <button class="add-btn">Add to Cart →</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1599062276856-8c3c5f7b2e4e" alt="Bore Pipe">
+                    <div class="product-details">
+                        <div class="product-name">G.I. Bore Pipe (4")</div>
+                        <div class="product-description">Galvanized iron bore pipe for long-lasting durability</div>
+                        <div class="product-specs">Diameter: 4" | Material: G.I. | Thickness: 3mm</div>
+                        <div class="price-section">
+                            <div>
+                                <span class="original-price">₹6,500</span>
+                                <div class="price">₹4,599</div>
+                            </div>
+                            <span class="discount-badge">29% OFF</span>
+                        </div>
+                        <button class="add-btn">Add to Cart →</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== TAPS & FITTINGS ========== -->
+        <div class="category-section">
+            <h2 class="category-title">🚰 Taps & Fittings</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64" alt="Brass Tap">
+                    <div class="product-details">
+                        <div class="product-name">Brass Kitchen Tap (½")</div>
+                        <div class="product-description">Premium brass tap with aerator, anti-bacterial coating</div>
+                        <div class="product-specs">Size: ½" | Material: Brass | Thread: NPT</div>
+                        <div class="price-section">
+                            <div>
+                                <span class="original-price">₹850</span>
+                                <div class="price">₹599</div>
+                            </div>
+                            <span class="discount-badge">30% OFF</span>
+                        </div>
+                        <button class="add-btn">Add to Cart →</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://5.imimg.com/data5/SELLER/Default/2021/7/XY/UL/GL/1287266/pillar-tap-500x500.jpg" alt="Pillar Tap">
+                    <div class="product-details">
+                        <div class="product-name">Pillar Tap (Chrome)</div>
+                        <div class="product-description">Elegant chrome finish pillar tap for wash basins</div>
+                        <div class="product-specs">Material: Brass | Finish: Chrome | Size: ½"</div>
+                        <div class="price-section">
+                            <div>
+                                <span class="original-price">₹1,100</span>
+                                <div class="price">₹799</div>
+                            </div>
+                            <span class="discount-badge">27% OFF</span>
+                        </div>
+                        <button class="add-btn">Add to Cart →</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://5.imimg.com/data5/SELLER/Default/2021/7/XY/UL/GL/1287266/bib-cock-tap-500x500.jpg" alt="Bib Cock Tap">
+                    <div class="product-details">
+                        <div class="product-name">Bib Cock Tap</div>
+                        <div class="product-description">Wall mounted bib cock tap for bathrooms and gardens</div>
+                        <div class="product-specs">Material: Brass | Finish: Nickel | Size: ½"</div>
+                        <div class="price-section">
+                            <div>
+                                <span class="original-price">₹950</span>
+                                <div class="price">₹649</div>
+                            </div>
+                            <span class="discount-badge">32% OFF</span>
+                        </div>
+                        <button class="add-btn">Add to Cart →</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img src="https://5.imimg.com/data5/SELLER/Default/2023/4/299971862/ES/QN/HH/37637234/stainless-steel-bathroom-tap-500x500.jpg" alt="Bathroom Tap">
+                    <div class="product-details">
+                        <div class="product-name">Stainless Steel Bathroom Tap</div>
+                        <div class="product-description">Modern curved design with rust-resistant stainless steel</div>
+                        <div class="product-specs">Size: ½" | Material: SS | Warranty: 5 Years</div>
+                        <div class="price-section">
+                            <div>
+                                <span class="original-price">₹1,200</span>
+                                <div class="price">₹799</div>
+                            </div>
+                            <span class="discount-badge">33% OFF</span>
+                        </div>
+                        <button class="add-btn">Add to Cart →</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img src="https://m.media-amazon.com/images/I/51oG60rB4SL.jpg" alt="PVC Pipe Fitting">
+                    <div class="product-details">
+                        <div class="product-name">PVC Pipe Fitting Kit</div>
+                        <div class="product-description">Complete set of elbows, T-joints, and connectors (½" & ¾")</div>
+                        <div class="product-specs">Sizes: ½" & ¾" | Includes: 20 pieces | Pressure: 10 kg/cm²</div>
+                        <div class="price-section">
+                            <div>
+                                <span class="original-price">₹2,500</span>
+                                <div class="price">₹1,699</div>
+                            </div>
+                            
+                            <span class="discount-badge">32% OFF</span>
+                        </div>
+                        <button class="add-btn">Add to Cart →</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img src="https://uk.misumi-ec.com/linked/material/mech/KIT1/PHOTO/KIT1_221000051810.jpg" alt="Pipe Adapter">
+                    <div class="product-details">
+                        <div class="product-name">Nipple Pipe Adapter (1")</div>
+                        <div class="product-description">Heavy-duty nipple adapter for various industrial applications</div>
+                        <div class="product-specs">Size: 1" | Length: 50-100mm | Material: M.S./Brass</div>
+                        <div class="price-section">
+                            <div>
+                                <span class="original-price">₹450</span>
+                                <div class="price">₹299</div>
+                            </div>
+                            <span class="discount-badge">34% OFF</span>
+                        </div>
+                        <button class="add-btn">Add to Cart →</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== SHOWERS ========== -->
+        <div class="category-section">
+            <h2 class="category-title">🚿 Shower Systems</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <img src="https://mmingle.in/wp-content/uploads/2023/11/1.jpg" alt="Rain Shower Head">
+                    <div class="product-details">
+                        <div class="product-name">Rain Shower Head (200mm)</div>
+                        <div class="product-description">Modern square rain shower with adjustable water flow</div>
+                        <div class="product-specs">Size: 200x200mm | Material: SS/ABS | Flow Rate: 8 LPM</div>
+                        <div class="price-section">
+                            <div>
+                                <span class="original-price">₹2,500</span>
+                                <div class="price">₹1,699</div>
+                            </div>
+                            <span class="discount-badge">32% OFF</span>
+                        </div>
+                        <button class="add-btn">Add to Cart →</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://5.imimg.com/data5/SELLER/Default/2021/7/XY/UL/GL/1287266/overhead-shower-500x500.jpg" alt="Overhead Shower">
+                    <div class="product-details">
+                        <div class="product-name">Overhead Shower (Round)</div>
+                        <div class="product-description">Stainless steel overhead shower for luxury bathrooms</div>
+                        <div class="product-specs">Diameter: 8" | Material: SS | Adjustable Angle</div>
+                        <div class="price-section">
+                            <div>
+                                <span class="original-price">₹1,800</span>
+                                <div class="price">₹1,199</div>
+                            </div>
+                            <span class="discount-badge">33% OFF</span>
+                        </div>
+                        <button class="add-btn">Add to Cart →</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://5.imimg.com/data5/SELLER/Default/2021/7/XY/UL/GL/1287266/hand-shower-500x500.jpg" alt="Hand Shower">
+                    <div class="product-details">
+                        <div class="product-name">Hand Shower (ABS)</div>
+                        <div class="product-description">ABS hand shower with multiple spray patterns</div>
+                        <div class="product-specs">Material: ABS | Hose: 1.5m | 3 Spray Modes</div>
+                        <div class="price-section">
+                            <div>
+                                <span class="original-price">₹1,200</span>
+                                <div class="price">₹799</div>
+                            </div>
+                            <span class="discount-badge">33% OFF</span>
+                        </div>
+                        <button class="add-btn">Add to Cart →</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img src="https://www.jiomart.com/images/product/original/rvrqv1gp4s/gosai-abs-stainless-steel-tube-handheld-shower-set-high-pressure-detachable-shower-head-with-hand-spray-on-off-pause-switch-3-spray-setting-showerhead-with-1-5m-long-hose-crom-product-images-orvrqv1gp4s-p605898911-5-202310301357.jpg?im=Resize=(1000,1000)" alt="Handheld Shower">
+                    <div class="product-details">
+                        <div class="product-name">Handheld Shower Head with Hose</div>
+                        <div class="product-description">Chrome plated handheld shower with 1.5m stainless steel hose</div>
+                        <div class="product-specs">Finish: Chrome | Hose: 1.5m SS | Multiple Spray Patterns</div>
+                        <div class="price-section">
+                            <div>
+                                <span class="original-price">₹1,600</span>
+                                <div class="price">₹999</div>
+                            </div>
+                            <span class="discount-badge">38% OFF</span>
+                        </div>
+                        <button class="add-btn">Add to Cart →</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1699288385169-51ae8d0f9db0" alt="Complete Shower Kit">
+                    <div class="product-details">
+                        <div class="product-name">Complete Shower System Kit</div>
+                        <div class="product-description">Full shower solution with mixer, arm, head, and hose</div>
+                        <div class="product-specs">Material: Brass Body | Finish: Chrome | Warranty: 3 Years</div>
+                        <div class="price-section">
+                            <div>
+                                <span class="original-price">₹8,500</span>
+                                <div class="price">₹5,499</div>
+                            </div>
+                            <span class="discount-badge">35% OFF</span>
+                        </div>
+                        <button class="add-btn">Add to Cart →</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945" alt="Shower Mixer">
+                    <div class="product-details">
+                        <div class="product-name">Thermostatic Shower Mixer</div>
+                        <div class="product-description">Advanced mixer with temperature control and pressure balance</div>
+                        <div class="product-specs">Type: Thermostat | Temp Control: 38°C Auto-Shut | Brass</div>
+                        <div class="price-section">
+                            <div>
+                                <span class="original-price">₹6,500</span>
+                                <div class="price">₹4,299</div>
+                            </div>
+                            <span class="discount-badge">34% OFF</span>
+                        </div>
+                        <button class="add-btn">Add to Cart →</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== TOOLS & ACCESSORIES ========== -->
+        <div class="category-section">
+            <h2 class="category-title">🔧 Tools & Accessories</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1586864387967-d02ef85d93e8" alt="Heavy Duty Hammer">
+                    <div class="product-details">
+                        <div class="product-name">Heavy Duty Hammer (1 kg)</div>
+                        <div class="product-description">Professional grade hammer with comfortable grip handle</div>
+                        <div class="product-specs">Weight: 1 kg | Handle: Wooden/Fiberglass | Durable Head</div>
+                        <div class="price-section">
+                            <div>
+                                <span class="original-price">₹500</span>
+                                <div class="price">₹349</div>
+                            </div>
+                            <span class="discount-badge">30% OFF</span>
+                        </div>
+                        <button class="add-btn">Add to Cart →</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://5.imimg.com/data5/SELLER/Default/2021/7/XY/UL/GL/1287266/screwdriver-set-500x500.jpg" alt="Screwdriver Set">
+                    <div class="product-details">
+                        <div class="product-name">Screwdriver Set (8 pcs)</div>
+                        <div class="product-description">Multipurpose screwdriver set for home and professional use</div>
+                        <div class="product-specs">Pieces: 8 | Magnetic Tips | Carry Case Included</div>
+                        <div class="price-section">
+                            <div>
+                                <span class="original-price">₹600</span>
+                                <div class="price">₹399</div>
+                            </div>
+                            <span class="discount-badge">34% OFF</span>
+                        </div>
+                        <button class="add-btn">Add to Cart →</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://5.imimg.com/data5/SELLER/Default/2021/7/XY/UL/GL/1287266/combination-plier-500x500.jpg" alt="Combination Plier">
+                    <div class="product-details">
+                        <div class="product-name">Combination Plier (8")</div>
+                        <div class="product-description">Heavy-duty plier for cutting and gripping wires</div>
+                        <div class="product-specs">Size: 8" | Material: Carbon Steel | Insulated Handle</div>
+                        <div class="price-section">
+                            <div>
+                                <span class="original-price">₹350</span>
+                                <div class="price">₹229</div>
+                            </div>
+                            <span class="discount-badge">35% OFF</span>
+                        </div>
+                        <button class="add-btn">Add to Cart →</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1599058917212-d750089bc07e" alt="Adjustable Wrench">
+                    <div class="product-details">
+                        <div class="product-name">Adjustable Wrench (12")</div>
+                        <div class="product-description">Chrome plated adjustable wrench for various sizes</div>
+                        <div class="product-specs">Size: 12" | Jaw Opening: 33mm | Easy Adjustment</div>
+                        <div class="price-section">
+                            <div>
+                                <span class="original-price">₹650</span>
+                                <div class="price">₹449</div>
+                            </div>
+                            <span class="discount-badge">31% OFF</span>
+                        </div>
+                        <button class="add-btn">Add to Cart →</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1604908177522-402bc91f37f4" alt="Power Drill">
+                    <div class="product-details">
+                        <div class="product-name">Electric Power Drill Machine</div>
+                        <div class="product-description">Compact 400W drill machine with variable speed control</div>
+                        <div class="product-specs">Power: 400W | Speed: 0-2800 RPM | Chuck Size: 10mm</div>
+                        <div class="price-section">
+                            <div>
+                                <span class="original-price">₹3,500</span>
+                                <div class="price">₹2,299</div>
+                            </div>
+                            <span class="discount-badge">34% OFF</span>
+                        </div>
+                        <button class="add-btn">Add to Cart →</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1582718471384-894fbb16e074" alt="Tool Set">
+                    <div class="product-details">
+                        <div class="product-name">Complete Tool Set (25 Pieces)</div>
+                        <div class="product-description">Professional tool kit with carrying bag for all repairs</div>
+                        <div class="product-specs">Includes: Hammers, Wrenches, Screwdrivers, and More</div>
+                        <div class="price-section">
+                            <div>
+                                <span class="original-price">₹5,000</span>
+                                <div class="price">₹3,299</div>
+                            </div>
+                            <span class="discount-badge">34% OFF</span>
+                        </div>
+                        <button class="add-btn">Add to Cart →</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== PLUMBING SUPPLIES ========== -->
+        <div class="category-section">
+            <h2 class="category-title">🔩 Plumbing & Electrical Supplies</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1599062276856-8c3c5f7b2e4d" alt="Copper Wire">
+                    <div class="product-details">
+                        <div class="product-name">Copper Wire (Per Meter) - 6 sq.mm</div>
+                        <div class="product-description">Pure copper electrical wire for household and commercial use</div>
+                        <div class="product-specs">Size: 6 sq.mm | Type: PVC Insulated | Flexible & Durable</div>
+                        <div class="price-section">
+                            <div>
+                                <span class="original-price">₹80</span>
+                                <div class="price">₹55</div>
+                            </div>
+                            <span class="discount-badge">31% OFF</span>
+                        </div>
+                        <button class="add-btn">Add to Cart →</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://5.imimg.com/data5/SELLER/Default/2021/7/XY/UL/GL/1287266/upvc-pipe-500x500.jpg" alt="UPVC Pipe">
+                    <div class="product-details">
+                        <div class="product-name">UPVC Pipe (1 inch)</div>
+                        <div class="product-description">UPVC pipe for plumbing and water supply</div>
+                        <div class="product-specs">Diameter: 1" | Length: 3m | Pressure: 10kg/cm²</div>
+                        <div class="price-section">
+                            <div>
+                                <span class="original-price">₹350</span>
+                                <div class="price">₹249</div>
+                            </div>
+                            <span class="discount-badge">29% OFF</span>
+                        </div>
+                        <button class="add-btn">Add to Cart →</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://5.imimg.com/data5/SELLER/Default/2021/7/XY/UL/GL/1287266/ceramic-wash-basin-500x500.jpg" alt="Ceramic Wash Basin">
+                    <div class="product-details">
+                        <div class="product-name">Ceramic Wash Basin</div>
+                        <div class="product-description">Elegant ceramic wash basin for bathrooms</div>
+                        <div class="product-specs">Material: Ceramic | Size: 18" | Table Top</div>
+                        <div class="price-section">
+                            <div>
+                                <span class="original-price">₹2,800</span>
+                                <div class="price">₹1,999</div>
+                            </div>
+                            <span class="discount-badge">29% OFF</span>
+                        </div>
+                        <button class="add-btn">Add to Cart →</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://5.imimg.com/data5/SELLER/Default/2021/7/XY/UL/GL/1287266/western-toilet-seat-500x500.jpg" alt="Western Toilet Seat">
+                    <div class="product-details">
+                        <div class="product-name">Western Toilet Seat</div>
+                        <div class="product-description">Premium western commode for modern bathrooms</div>
+                        <div class="product-specs">Material: Ceramic | Soft Close Lid | Floor Mounted</div>
+                        <div class="price-section">
+                            <div>
+                                <span class="original-price">₹7,500</span>
+                                <div class="price">₹5,299</div>
+                            </div>
+                            <span class="discount-badge">29% OFF</span>
+                        </div>
+                        <button class="add-btn">Add to Cart →</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1599062302401-e9c85eb3f3e1" alt="PVC Conduit Pipe">
+                    <div class="product-details">
+                        <div class="product-name">PVC Conduit Pipe (20mm)</div>
+                        <div class="product-description">Flexible PVC conduit for protecting electrical wires</div>
+                        <div class="product-specs">Diameter: 20mm | Length: Per Meter | UV Resistant</div>
+                        <div class="price-section">
+                            <div>
+                                <span class="original-price">₹40</span>
+                                <div class="price">₹28</div>
+                            </div>
+                            <span class="discount-badge">30% OFF</span>
+                        </div>
+                        <button class="add-btn">Add to Cart →</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1533539385477-15efc3427ffd" alt="Pipe Sealant">
+                    <div class="product-details">
+                        <div class="product-name">PTFE Pipe Sealant Tape</div>
+                        <div class="product-description">Professional grade sealant tape prevents water leaks</div>
+                        <div class="product-specs">Width: 12mm | Length: 17m | Food Grade Safe</div>
+                        <div class="price-section">
+                            <div>
+                                <span class="original-price">₹200</span>
+                                <div class="price">₹129</div>
+                            </div>
+                            <span class="discount-badge">35% OFF</span>
+                        </div>
+                        <button class="add-btn">Add to Cart →</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1616627980657-df97b0f6d3c9" alt="Junction Box">
+                    <div class="product-details">
+                        <div class="product-name">Electrical Junction Box (4" x 4")</div>
+                        <div class="product-description">Heavy duty plastic junction box for electrical connections</div>
+                        <div class="product-specs">Size: 4" x 4" | Material: PVC/Plastic | Weatherproof</div>
+                        <div class="price-section">
+                            <div>
+                                <span class="original-price">₹300</span>
+                                <div class="price">₹199</div>
+                            </div>
+                            <span class="discount-badge">34% OFF</span>
+                        </div>
+                        <button class="add-btn">Add to Cart →</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Info Box -->
+        <div class="info-box" style="margin-top: 60px;">
+            <h3>📞 Need Help or Custom Orders?</h3>
+            <p>Contact us for bulk orders, custom specifications, or installation services. Free consultation available!</p>
+            <p><strong>Phone:</strong> +91 9876543210 | +91 7654321098 | <strong>Email:</strong> info@manojmachineries.com</p>
+        </div>
+    </div>
+
+    <!-- Product Search Script -->
+    <script>
+    // Flipkart-style main search bar filter
+    document.getElementById('mainSearchBar').addEventListener('input', function() {
+        const query = this.value.toLowerCase();
+        document.querySelectorAll('.category-section').forEach(section => {
+            let sectionHasVisible = false;
+            section.querySelectorAll('.product-card').forEach(card => {
+                const name = card.querySelector('.product-name').textContent.toLowerCase();
+                const desc = card.querySelector('.product-description').textContent.toLowerCase();
+                const specs = card.querySelector('.product-specs').textContent.toLowerCase();
+                if (name.includes(query) || desc.includes(query) || specs.includes(query)) {
+                    card.style.display = '';
+                    sectionHasVisible = true;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+            // Hide category if no visible products
+            section.style.display = sectionHasVisible ? '' : 'none';
+        });
+    });
+    </script>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>About Manoj Machineries</h4>
+                <p>Trusted hardware supplier since 1995 with quality products and excellent service</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <a href="index.html">Home</a>
+                <a href="#">Products</a>
+                <a href="#bulk-orders">Bulk Orders</a>
+                <a href="#installation">Installation Service</a>
+            </div>
+            <div class="footer-section">
+                <h4>Contact Information</h4>
+                <div class="contact-info">📞 +91 9876543210</div>
+                <div class="contact-info">📞 +91 7654321098</div>
+                <div class="contact-info">📧 info@manojmachineries.com</div>
+                <div class="contact-info">📍 Main Market, Town Center</div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Manoj Machineries. All rights reserved. | "Quality Hardware at Best Prices"</p>
+        </div>
+    </footer>
+</body>
+</html>.product-image {
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    background: #f0f0f0;
+}.product-image {
+            width: 100%;
+            aspect-ratio: 1/1;
+            object-fit: cover;
+            background: #f0f0f0;
+}<div class="page-title">
+    <h1>Complete Hardware Solutions</h1>
+    <p>Discover our wide range of quality products at best prices</p>
+</div><img src="https://cdn-icons-png.flaticon.com/512/3075/3075973.png" alt="Manoj" style="height: 40px;">
+<span style="font-size: 22px; font-weight: bold; color: #2874f0;">Manoj</span><img src="https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/fk-explorePlus-c5de64.png" alt="Flipkart" style="height: 40px;">
+<span style="font-size: 22px; font-weight: bold; color: #2874f0;">Flipkart</span>

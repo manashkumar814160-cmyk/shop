@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+
+        </title>
+        <body>
+            <script>
+                const h1Element = document.createElement("h1");
+                h1Element.textContent = "DOM Manipulation";
+                document.body.appendChild(h1Element);
+                //p element 
+                const pElement = document.createElement("p");
+                pElement.textContent = "This is a paragraph added dynamically using DOM manipulation.";
+                document.body.appendChild(pElement);
+                //button element
+                const buttonElement = document.createElement("button");
+                buttonElement.textContent = "Click Me";
+                buttonElement.onclick = function() {
+                    alert("Button Clicked!");
+                };
+                document.body.appendChild(buttonElement);
+                
+            </script>
+        </body>
+    </head>
+</html>

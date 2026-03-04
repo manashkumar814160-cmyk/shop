@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Remix Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <title>Manash Kumar | Portfolio</title>
+<style>
+  body{
+    font-family: "Unbounded", sans-serif;
+    background: linear-gradient(135deg,#0f051d,#1a0b2e,#2a0f4f);
+    color: #f5f5f5;
+    scroll-behavior: smooth;
+  }
+
+  /* Navbar */
+  .navbar{
+    backdrop-filter: blur(15px);
+    background: rgba(20, 5, 40, 0.7) !important;
+  }
+
+  .navbar-brand{
+    color: #ff2e93 !important;
+    letter-spacing: 2px;
+  }
+
+  .nav-link:hover{
+    color: #ff2e93 !important;
+  }
+
+  /* Hero Image */
+  .hero-img{
+    width: 350px;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid #ff2e93;
+    transition: 0.4s;
+  }
+
+  .hero-img:hover{
+    transform: scale(1.05);
+    box-shadow: 0 0 50px #9d4edd;
+  }
+
+  /* Headings */
+  h1, h2 {
+    background: linear-gradient(90deg,#ff2e93,#9d4edd);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* Buttons */
+  .btn-info{
+    background: linear-gradient(90deg,#ff2e93,#9d4edd);
+    border: none;
+    border-radius: 30px;
+    font-weight: 500;
+    transition: 0.4s;
+  }
+
+  .btn-info:hover{
+    transform: scale(1.05);
+    box-shadow: 0 0 20px #ff2e93;
+  }
+
+  .btn-outline-info{
+    border: 2px solid #ff2e93;
+    color: #ff2e93;
+    border-radius: 30px;
+  }
+
+  .btn-outline-info:hover{
+    background: #ff2e93;
+    color: white;
+  }
+
+  /* Cards */
+  .card{
+    border-radius: 20px;
+    background: rgba(30,10,60,0.6);
+    backdrop-filter: blur(10px);
+    transition: 0.4s;
+  }
+
+  .card:hover{
+    transform: translateY(-10px);
+    box-shadow: 0 0 40px #9d4edd;
+  }
+
+  footer{
+    border-top: 1px solid #9d4edd;
+  }
+
+  section{
+    padding-top: 100px;
+  }
+</style>
+  <head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top shadow">
+  <div class="container">
+    <a class="navbar-brand fw-bold text-info" href="#">Manash Kumar</a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- HOME -->
+<section class="container text-center text-md-start" id="home">
+  <div class="row align-items-center">
+
+    <div class="col-md-6">
+      <h4 class="text-secondary">Hello 👋 I'm</h4>
+      <h1 class="display-4 fw-bold text-info">Manash Kumar</h1>
+
+      <p class="text-secondary mt-3">
+        A passionate Web Developer who builds modern,
+        responsive and user-friendly websites.
+      </p>
+
+      <div class="mt-4">
+        <a href="#" class="btn btn-info px-4 me-3">Download CV</a>
+        <a href="#projects" class="btn btn-outline-info px-4">View Projects</a>
+      </div>
+
+      <div class="mt-4 fs-4">
+        <a href="#" class="text-light me-3"><i class="ri-linkedin-fill"></i></a>
+        <a href="#" class="text-light me-3"><i class="ri-github-fill"></i></a>
+        <a href="#" class="text-light"><i class="ri-instagram-line"></i></a>
+      </div>
+    </div>
+
+    <div class="col-md-6 text-center mt-5 mt-md-0">
+      <img src="maphoto.png" alt="Profile Image" class="hero-img">
+    </div>
+
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="container text-center" id="about">
+  <h2 class="text-info mb-4">About Me</h2>
+  <p class="text-secondary mx-auto" style="max-width:700px;">
+    I specialize in building modern websites using HTML, CSS,
+    JavaScript and React. I love creating clean UI and smooth user experiences.
+  </p>
+
+  <div class="row g-3 mt-4">
+    <div class="col-6 col-md-3"><div class="btn btn-outline-info w-100">HTML</div></div>
+    <div class="col-6 col-md-3"><div class="btn btn-outline-info w-100">CSS</div></div>
+    <div class="col-6 col-md-3"><div class="btn btn-outline-info w-100">JavaScript</div></div>
+    <div class="col-6 col-md-3"><div class="btn btn-outline-info w-100">React</div></div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="container" id="projects">
+  <h2 class="text-center text-info mb-5">Projects</h2>
+
+  <div class="row g-4">
+
+    <div class="col-md-4">
+      <div class="card bg-dark text-light p-4">
+        <h5>Shop Clone</h5>
+        <p class="text-secondary">Created using HTML, CSS & JavaScript.</p>
+        <a href="shop/websiteProject/_1shop.html" class="btn btn-outline-info btn-sm">View Project</a>
+      </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card bg-dark text-light p-4">
+          <h5>Boot Strap</h5>
+          <p class="text-secondary">Created using HTML, CSS & JavaScript.</p>
+        <a href="bootstrap.html" class="btn btn-outline-info btn-sm">View Project</a>
+      </div>
+    </div>
+
+
+    <div class="col-md-4">
+      <div class="card bg-dark text-light p-4">
+        <h5>Form Validation</h5>
+        <p class="text-secondary">Responsive form with validation.</p>
+        <a href="form/_1form.html" class="btn btn-outline-info btn-sm">View Project</a>
+      </div>
+    </div>
+    
+    <div class="col-md-4">
+      <div class="card bg-dark text-light p-4">
+        <h5>Java Script</h5>
+        <p class="text-secondary">Created using HTML, CSS & JavaScript.</p>
+        <a href="javascript.html" class="btn btn-outline-info btn-sm">View Project</a>
+      </div>
+    </div>
+
+
+    <div class="col-md-4">
+      <div class="card bg-dark text-light p-4">
+        <h5>Portfolio Website</h5>
+        <p class="text-secondary">Modern animated portfolio design.</p>
+        <a href="#" class="btn btn-outline-info btn-sm">View Project</a>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card bg-dark text-light p-4">
+        <h5>Codechef</h5>
+        <p class="text-secondary">My Coding Profile.</p>
+        <a href="https://www.codechef.com/users/manash2402" class="btn btn-outline-info btn-sm">View Project</a>
+      </div>
+    </div>
+
+     <div class="col-md-4">
+      <div class="card bg-dark text-light p-4">
+        <h5>ArithmeticCalculator</h5>
+        <p class="text-secondary">My Calculator.</p>
+        <a href="ArithmeticCalculator.html" class="btn btn-outline-info btn-sm">View Project</a>
+      </div>
+    </div>
+
+     <div class="col-md-4">
+      <div class="card bg-dark text-light p-4">
+        <h5>Html and css</h5>
+        <p class="text-secondary">class work project.</p>
+        <a href="html.html" class="btn btn-outline-info btn-sm">View Project</a>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card bg-dark text-light p-4">
+        <h5>Github project</h5>
+        <p class="text-secondary">My Github.</p>
+        <a href="https://github.com/manashkumar814160-cmyk" class="btn btn-outline-info btn-sm">View Project</a>
+      </div>
+    </div>
+  
+     <div class="col-md-4">
+      <div class="card bg-dark text-light p-4">
+        <h5>Login</h5>
+        <p class="text-secondary">Login.</p>
+        <a href="loginpage.html" class="btn btn-outline-info btn-sm">View Project</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="col-md-4">
+        <p class="text-secondary">class work</p>
+        <a href="loginpage.html" class="btn btn-outline-info btn-sm">View Project</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="container text-center" id="contact">
+  <h2 class="text-info mb-4">Contact Me</h2>
+
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <form>
+        <input type="text" class="form-control mb-3" placeholder="Your Name">
+        <input type="email" class="form-control mb-3" placeholder="Your Email">
+        <textarea class="form-control mb-3" rows="4" placeholder="Your Message"></textarea>
+        <button class="btn btn-info w-100">Send Message</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-dark text-center text-light py-4">
+  <h5 class="text-info">Manash Kumar</h5>
+  <p class="mb-0">© 2026 All Rights Reserved</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

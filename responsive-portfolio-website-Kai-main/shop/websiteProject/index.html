@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manoj Machineries - Your Trusted Hardware Shop</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: linear-gradient(135deg, #db3806 0%, #2a19e6 100%);
+            color: white;
+            padding: 20px 0;
+            /* position: sticky; */
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            font-size: 32px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+
+        nav a:hover {
+            opacity: 0.8;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 40px;
+        }
+
+        .hero h1 {
+            font-size: 60px;
+            margin-bottom: 20px;
+            font-weight: 800;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 24px;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+
+        .cta-button {
+            background: #ff6f00;
+            color: white;
+            padding: 16px 40px;
+            font-size: 18px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: bold;
+            box-shadow: 0 6px 20px rgba(255, 111, 0, 0.4);
+        }
+
+        .cta-button:hover {
+            background: #e65c00;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 111, 0, 0.6);
+        }
+
+        /* Featured Products Section */
+        .featured-section {
+            max-width: 1200px;
+            margin: 80px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 42px;
+            margin-bottom: 50px;
+            color: #222;
+            position: relative;
+            padding-bottom: 20px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, #d32f2f, #ff6f00);
+            border-radius: 2px;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            text-align: center;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            background: #f0f0f0;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-name {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #222;
+        }
+
+        .product-description {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        /* Features Section */
+        .features {
+            background: #f9f9f9;
+            padding: 60px 20px;
+            margin-top: 60px;
+        }
+
+        .features-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 30px;
+        }
+
+        .feature-icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+
+        .feature-item h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #222;
+        }
+
+        .feature-item p {
+            color: #666;
+        }
+
+        /* Call to Action */
+        .cta-section {
+            background: linear-gradient(135deg, #d32f2f 0%, #ff6f00 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            margin-top: 80px;
+        }
+
+        .cta-section h2 {
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+
+        .cta-button-light {
+            background: white;
+            color: #d32f2f;
+            padding: 16px 40px;
+            font-size: 18px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: bold;
+        }
+
+        .cta-button-light:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        /* Footer */
+        footer {
+            background: #222;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            text-align: left;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 15px;
+            color: #ff6f00;
+        }
+
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 8px;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: #ff6f00;
+        }
+
+        .contact-info {
+            margin: 10px 0;
+            color: #ccc;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #444;
+            padding-top: 20px;
+            font-size: 14px;
+            color: #999;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+
+            .header-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav a {
+                margin: 0 10px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- Header & Navigation -->
+    <header>
+
+        <div class="header-container">
+            <a class="navbar-brand" href="#"><img src="Manoj.png" alt="hulk" width="150px" height="100px"></a>
+            <div class="logo">
+                <span class="logo-icon">⚙️</span>
+                <span>Manoj Machineries</span>
+            </div>
+            <nav>
+                <a href="#home">Home</a>
+                <a href="products.html">Products</a>
+                <a href="#features">Why Us</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>🏪 Your Trusted Shop</h1>
+            <h2 style="font-size: 40px; margin-bottom: 30px;">Manoj Machineries</h2>
+            <p>Complete Hardware Solutions for All Your Needs</p>
+            <p style="font-size: 18px; margin-bottom: 40px;">Quality Motors • Parts• Taps • Showers & Everything More</p>
+            <a href="products.html"><button class="cta-button">Explore Our Products →</button></a>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="featured-section">
+        <h2 class="section-title">Featured Products</h2>
+        <div class="products-grid">
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789" alt="Electric Motor" class="product-image">
+                <div class="product-info">
+                    <div class="product-name">⚡ Electric Motors</div>
+                    <div class="product-description">Heavy-duty motors for pumps & machinery</div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="parts.jpg" alt="Tube Well" class="product-image">
+                <div class="product-info">
+                    <div class="product-name">💧 Pipes</div>
+                    <div class="product-description">Deep bore tube wells for agriculture</div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64" alt="Taps & Fixtures" class="product-image">
+                <div class="product-info">
+                    <div class="product-name">🚰 Taps & Fittings</div>
+                    <div class="product-description">Premium quality water taps & fixtures</div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="shower.jpg" alt="Shower Systems" class="product-image" style="object-position: bottom;">
+                <div class="product-info">
+                    <div class="product-name">🚿 Shower Systems</div>
+                    <div class="product-description">Modern shower heads & rain showers</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="features-container">
+            <h2 class="section-title">Why Choose Manoj Machineries?</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">✅</div>
+                    <h3>20+ Years Experience</h3>
+                    <p>Trusted by thousands of customers for quality products and reliable service</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">💰</div>
+                    <h3>Best Prices</h3>
+                    <p>Competitive prices without compromising on quality</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🚚</div>
+                    <h3>Fast Delivery</h3>
+                    <p>Quick delivery across the region with safe packaging</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🛠️</div>
+                    <h3>Expert Support</h3>
+                    <p>Professional installation and after-sales support available</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta-section" id="contact">
+        <h2>Ready to Get Quality Hardware?</h2>
+        <p>Browse our complete collection of products at unbeatable prices</p>
+      <a href="products.html"><button class="cta-button-light">View All Products →</button></a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Manoj Machineries</h4>
+                <p style="color: #ccc;">Your one-stop solution for all hardware needs since 1995</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <a href="#home">Home</a>
+                <a href="products.html">Products</a>
+                <a href="#features">About Us</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="footer-section">
+                <h4>Contact Info</h4>
+                <div class="contact-info">📞 +91 9835491508</div>
+                <div class="contact-info">📞 +91 7764822033</div>
+                <div class="contact-info">📧 info@manojmachineries.com</div>
+                <div class="contact-info">📍 Main Market, Bharhat , Bihar</div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Manoj Machineries. All rights reserved. | "Quality Hardware at Best Prices"</p>
+        </div>
+    </footer>
+</body>
+</html>
